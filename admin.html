@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin Panel - Contact Submissions</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --main-color: #3b82f6;
+      --text-color: #1e293b;
+      --box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background: #f4f8fb;
+      color: var(--text-color);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    .admin-container {
+      background: #fff;
+      border-radius: 0.8rem;
+      box-shadow: var(--box-shadow);
+      padding: 2.5rem 2rem;
+      width: 100%;
+      max-width: 520px;
+    }
+
+    .admin-title {
+      color: var(--main-color);
+      text-align: center;
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+      font-weight: 600;
+    }
+
+    .login-form input {
+      width: 100%;
+      margin-bottom: 1.2rem;
+      padding: 0.9rem 1rem;
+      border: 1px solid #d1d5db;
+      border-radius: 0.4rem;
+      font-size: 1rem;
+      transition: border 0.2s ease;
+    }
+
+    .login-form input:focus {
+      border-color: var(--main-color);
+      outline: none;
+    }
+
+    .btn {
+      background: var(--main-color);
+      color: #fff;
+      border: none;
+      padding: 0.9rem;
+      font-size: 1rem;
+      font-weight: 500;
+      border-radius: 0.4rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .btn:hover {
+      background: #2563eb;
+    }
+
+    .logout-btn {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background: #ef4444;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  z-index: 999;
+}
+
+
+    .logout-btn:hover {
+      background: #dc2626;
+    }
+
+    .form-message.error {
+      color: #dc2626;
+      font-size: 0.9rem;
+      margin-top: -0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .contact-list {
+      margin-top: 2rem;
+    }
+
+    .contact-item {
+      background: #f9fafb;
+      border-left: 4px solid var(--main-color);
+      border-radius: 0.5rem;
+      margin-bottom: 1.2rem;
+      padding: 1rem 1.2rem;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
+    }
+
+    .contact-item strong {
+      color: var(--main-color);
+    }
+
+    .contact-item .date {
+      color: #6b7280;
+      font-size: 0.85rem;
+      float: right;
+    }
+
+    .no-contacts {
+      text-align: center;
+      color: #9ca3af;
+      margin-top: 2rem;
+      font-size: 1rem;
+    }
+
+    @media (max-width: 600px) {
+      .admin-container {
+        padding: 2rem 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="admin-container">
+    <h2 class="admin-title">Admin Panel</h2>
+    <div id="adminContent">
+    </div>
+  </div>
+
+  <script>
+    const ADMIN_USER = 'handmaa';
+    const ADMIN_PASS = 'admin123';
+
+    function renderLogin() {
+      document.getElementById('adminContent').innerHTML = `
+        <form class="login-form" id="loginForm">
+          <input type="text" id="adminUsername" placeholder="Username" required autocomplete="username">
+          <input type="password" id="adminPassword" placeholder="Password" required autocomplete="current-password">
+          <button type="submit" class="btn">Login</button>
+          <div id="loginError" class="form-message error" style="display:none;"></div>
+        </form>
+      `;
+      document.getElementById('loginForm').onsubmit = function(e) {
+        e.preventDefault();
+        const user = document.getElementById('adminUsername').value;
+        const pass = document.getElementById('adminPassword').value;
+        if (user === ADMIN_USER && pass === ADMIN_PASS) {
+          localStorage.setItem('admin_logged_in', '1');
+          renderContacts();
+        } else {
+          const err = document.getElementById('loginError');
+          err.textContent = 'Invalid username or password.';
+          err.style.display = 'block';
+        }
+      };
+    }
+
+    function renderContacts() {
+      let contacts = JSON.parse(localStorage.getItem('contacts') || '[]');
+      contacts = contacts.reverse();
+      let html = `<button class="btn logout-btn" onclick="logoutAdmin()">Logout</button>`;
+      if (contacts.length === 0) {
+        html += `<div class="no-contacts">No contacts yet.</div>`;
+      } else {
+        html += `<div class="contact-list">`;
+        contacts.forEach(c => {
+          html += `<div class="contact-item">
+            <div><strong>Name:</strong> ${escapeHTML(c.name)} <span class="date">${formatDate(c.date)}</span></div>
+            <div><strong>Email:</strong> ${escapeHTML(c.email)}</div>
+            <div><strong>Message:</strong><br>${escapeHTML(c.message)}</div>
+          </div>`;
+        });
+        html += `</div>`;
+      }
+      document.getElementById('adminContent').innerHTML = html;
+    }
+
+    function logoutAdmin() {
+      localStorage.removeItem('admin_logged_in');
+      renderLogin();
+    }
+
+    function escapeHTML(str) {
+      return str.replace(/[&<>"']/g, function(tag) {
+        const charsToReplace = {
+          '&': '&amp;',
+          '<': '&lt;',
+          '>': '&gt;',
+          '"': '&quot;',
+          "'": '&#39;'
+        };
+        return charsToReplace[tag] || tag;
+      });
+    }
+
+    function formatDate(dateStr) {
+      const d = new Date(dateStr);
+      return d.toLocaleString();
+    }
+
+    if (localStorage.getItem('admin_logged_in') === '1') {
+      renderContacts();
+    } else {
+      renderLogin();
+    }
+  </script>
+</body>
+</html>

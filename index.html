@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Portfolio Website HTML CSS and Javascript | Codehal</title>
+    <link rel="stylesheet" href="style.css">
+    <!--box icons-->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <div class="cover cover-left"></div>
+        <div class="cover cover-right"></div>
+
+        <div class="book">
+            <!--profile page-->
+            <div class="book-page page-left">
+                <div class="profile-page">
+                    <img src="unnamed.png" alt="">
+                    <h1>Б.Хасан</h1>
+                    <h3>"Apple" ахлах инженер</h3>
+
+                    <div class="social-media">
+                        <a href="#"><i class='bx bxl-facebook'></i></a>
+                        <a href="#"><i class='bx bxl-twitter' ></i></a>
+                        <a href="#"><i class='bx bxl-linkedin' ></i></a>
+                        <a href="#"><i class='bx bxl-instagram-alt' ></i></a>
+                    </div>
+
+                    <p>Алдарт Стив Жобсын үүсгэн байгуулсан, технологийн салбарыг үүрд өөрчилсөн, дэлхийн түүхэн дэх хамгийн өндөр 
+                        үнэлгээтэй Apple компанид 3 монгол хүн ажилладаг. Тэдний нэг бол Б.Хасан юм.</p>
+
+                    <div class="btn-box">
+                        <a href="#" class="btn" id="downloadCVBtn">Download CV</a>
+                        <a href="#" class="btn contact-me">Contact Me</a>
+                    </div>
+                </div>
+            </div>
+
+            <!--page 1 $ 2-->
+            <div class="book-page page-right turn" id="turn-1">
+                <!--page 1 (work experience)-->
+                <div class="page-front">
+                    <h1 class="title">Ажлын туршлага</h1>
+
+                    <div class="workeduc-box">
+                        <div class="workeduc-content">
+                            <span class="year"><i class='bx bxs-calendar'></i>2010 - 2012</span>
+                            <h3>МУИС-ийн Математик, компьютерийн сургууль</h3>
+                            <p>Програмчлалын улсын болон олон улсын олимпиадуудаас медаль хүртэж байсан тэрээр 
+                                2010 онд МУИС-ийн Математик, компьютерийн сургуулийг програм хангамжийн инженер мэргэжлээр төгсөн 2 жил ажилласан.</p>
+                        </div>
+                    </div>
+
+                    <div class="workeduc-box">
+                        <div class="workeduc-content">
+                            <span class="year"><i class='bx bxs-calendar'></i>2013 - 2020</span>
+                            <h3>АНУ-ын Айова муж</h3>
+                            <p>АНУ-ын Айова мужийн Махараши их сургуульд магистрын зэрэг хамгаалсан.</p>
+                        </div>
+                    </div>
+
+                    <div class="workeduc-box">
+                        <div class="workeduc-content">
+                            <span class="year"><i class='bx bxs-calendar'></i>2021 - 2025</span>
+                            <h3>Цахиурын хөндий RocketFuel</h3>
+                            <p>Инженерүүдээрээ алдартай компанид тэнцэн орж 2 жил туршлагажаад, "өөрөөр сэтгэгч" Apple 
+                                компаниас ажлын ярилцлагад орох хүсэлт хүлээн авч, хэд хэдэн шатыг давж тэнд ажилд орж чадсан.</p>
+                        </div>
+                    </div>
+
+                    <span class="number-page">1</span>
+
+                    <!--next button-->
+                    <span class="nextprev-btn" data-page="turn-1">
+                        <i class='bx bx-chevron-right' ></i>
+                    </span>
+                    
+                    
+                </div>
+
+                <!--page 2 (education)-->
+                <div class="page-back">
+                    <h1 class="title">Education</h1>
+
+                    <div class="workeduc-box">
+                        <div class="workeduc-content">
+                            <span class="year"><i class='bx bxs-calendar'></i>2010 - 2012</span>
+                            <h3>МУИС-ийн Математик, компьютерийн сургууль</h3>
+                            <p>Програмчлалын улсын болон олон улсын олимпиадуудаас медаль хүртэж байсан тэрээр 
+                                2010 онд МУИС-ийн Математик, компьютерийн сургуулийг програм хангамжийн инженер мэргэжлээр төгсөн 2 жил ажилласан.</p>
+                        </div>
+                    </div>
+
+                    <div class="workeduc-box">
+                        <div class="workeduc-content">
+                            <span class="year"><i class='bx bxs-calendar'></i>2013 - 2020</span>
+                            <h3>АНУ-ын Айова муж</h3>
+                            <p>АНУ-ын Айова мужийн Махараши их сургуульд магистрын зэрэг хамгаалсан.</p>
+                        </div>
+                    </div>
+
+                    <div class="workeduc-box">
+                        <div class="workeduc-content">
+                            <span class="year"><i class='bx bxs-calendar'></i>2021 - 2025</span>
+                            <h3>Цахиурын хөндий RocketFuel</h3>
+                            <p>Инженерүүдээрээ алдартай компанид тэнцэн орж 2 жил туршлагажаад, "өөрөөр сэтгэгч" Apple 
+                                компаниас ажлын ярилцлагад орох хүсэлт хүлээн авч, хэд хэдэн шатыг давж тэнд ажилд орж чадсан.</p>
+                        </div>
+                    </div>
+
+                    <span class="number-page">2</span>
+
+                    <!--prev button-->
+                    <span class="nextprev-btn back" data-page="turn-1">
+                        <i class='bx bx-chevron-left' ></i>
+                    </span>
+                </div>
+            </div>
+
+            <!--page 3 & 4-->
+            <div class="book-page page-right turn" id="turn-2">
+                <!--page 3 (my services)-->
+                <div class="page-front">
+                    <h1 class="title">My Services</h1>
+
+                    <div class="services-box">
+                        <div class="services-content">
+                            <i class='bx bx-code-alt'></i>
+                            <h3>Web Development</h3>
+                            <p>Вэб хөгжүүлэлт, вэбсайт болон вэб аппликейшн бүтээх, хөгжүүлэх, засварлах үйл явц юм.</p>
+                        </div>
+                        
+                        <div class="services-content">
+                            <i class='bx bxs-paint'></i>
+                            <h3>Creative Design</h3>
+                            <p>Шинэлэг сэтгэлгээ, уран сайхны элементүүдийг өвөрмөц дизайн бүтээх үйл явц юм.</p>
+                        </div>
+
+                        <div class="services-content">
+                            <i class='bx bx-bar-chart-alt'></i>
+                            <h3>Digital Marketing</h3>
+                            <p>Дижитал сувгуудыг ашиглан брэндийг сурталчлах үйл ажиллагаа юм.</p>
+                        </div>
+
+                        <div class="services-content">
+                            <i class='bx bx-search'></i>
+                            <h3>SEO</h3>
+                            <p>Хайлтын системийн оновчлол төлбөргүй хайлтын стратеги юм. </p>
+                        </div>
+                    </div>
+
+                    <span class="number-page">3</span>
+
+                    <!--next button-->
+                    <span class="nextprev-btn" data-page="turn-2">
+                        <i class='bx bx-chevron-right' ></i>
+                    </span>
+
+                                          
+                </div>
+
+                <!--page 4 (my skills)-->
+                <div class="page-back">
+                    <h1 class="title">My Skills</h1>
+
+                    <div class="skills-box">
+                        <div class="skills-content">
+                            <h3>Front-End</h3>
+                            <div class="content">
+                                <span><i class='bx bxl-html5'></i>HTML</span>
+                                <span><i class='bx bxl-css3'></i>CSS</span>
+                                <span><i class='bx bxl-javascript'></i>JS</span>
+                                <span><i class='bx bxl-angular'></i>Angular</span>
+                                <span><i class='bx bxl-react'></i>React</span>
+                                <span><i class='bx bxl-bootstrap'></i>Bootstrap</span>
+                                <span><i class='bx bxl-tailwind-css'></i>Tailwind</span>
+                            </div>
+                        </div>
+
+                        <div class="skills-content">
+                            <h3>Back-End</h3>
+                            <div class="content">
+                                <span><i class='bx bxl-python'></i>Python</span>
+                                <span><i class='bx bxl-java'></i>Java</span>
+                                <span><i class='bx bxl-php'></i>PHP</span>
+                                <span><i class='bx bxl-nodejs'></i>Node</span>
+                            </div>
+                        </div>
+
+                        <div class="skills-content">
+                            <h3>UI/UX Design</h3>
+                            <div class="content">
+                                <span><i class='bx bxl-figma'></i>Figma</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <span class="number-page">4</span>
+
+                    <!--prev button-->
+                    <span class="nextprev-btn back" data-page="turn-2">
+                        <i class='bx bx-chevron-left' ></i>
+                    </span>
+                </div>               
+            </div>
+
+            <!--page 5 & 6 -->
+            <div class="book-page page-right turn" id="turn-3">
+                <!--page 5 (Latest project or my portfolio)-->
+                <div class="page-front">
+                    <h1 class="title">Latest Project</h1>
+
+                    <div class="portfolio-box">
+                        <div class="img-box">
+                            <img src="Portfolio.jpg" alt="">
+                        </div>
+
+                        <div class="info-box">
+                        <div class="info-title">
+                            <h3>Project Name</h3>
+                        </div>
+                        <p>Tech Used:</p>
+                        <p>Сүүлийн 10-аад жил матемактик, алгоритм, програмчлалын бодлого бодож байна. Цэвэрхэн, цэгцтэй, үр 
+                            ашигтай код бичихэд их ач холбогдол өгдөг. Codechef-ээс сар бүр зохиодог тэмцээнд хоббигоороо бэлтгэл хийж, тогтмол оролцдог.</p>
+                    </div>
+
+                    </div>
+                    
+                    <span class="number-page">5</span>
+
+                    <!--next button-->
+                    <span class="nextprev-btn" data-page="turn-3">
+                        <i class='bx bx-chevron-right'></i>
+                    </span>
+                </div>
+
+                <!--page 6 (contact me)-->
+                <div class="page-back">
+                    <h1 class="title">Contact Me!</h1>
+
+                    <div class="contact-box">
+                        <form id="contactForm">
+                            <input type="text" name="name" id="name" class="field" placeholder="Full Name" required>
+                            <input type="email" name="email" id="email" class="field" placeholder="Email Address" required>
+                            <textarea name="message" id="message" cols="30" rows="10" class="field" placeholder="Your Message" required></textarea>
+                            <input type="submit" class="btn" value="Send Message">
+                            <div id="formMessage" class="form-message"></div>
+                        </form>
+                    </div>
+
+                    <span class="number-page">6</span>
+
+                    <!--prev button-->
+                    <span class="nextprev-btn back" data-page="turn-3">
+                        <i class='bx bx-chevron-left'></i>
+                    </span>
+
+                    <a href="#" class="back-profile">
+                        <p>Profile</p>
+                        <i class='bx bxs-user'></i>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    
+
+    <a id="hiddenDownloadLink" href="randomcv.png" download="CV.png" style="display: none;"></a>
+    <script src="script.js"></script>
+
+
+</body>
+
+</html>
