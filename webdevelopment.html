@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Development Services</title>
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        .service-page {
+            background: var(--bg-color);
+            min-height: 100vh;
+            padding: 5rem 2rem;
+        }
+
+        .service-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .service-header h1 {
+            font-size: 2.5rem;
+            color: var(--white-color);
+            margin-bottom: 1rem;
+        }
+
+        .service-header p {
+            color: #ddd;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .service-cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 2rem;
+            width: 350px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            border-color: var(--main-color);
+        }
+
+        .service-card .icon {
+            font-size: 3rem;
+            color: var(--main-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            color: var(--white-color);
+            margin-bottom: 1rem;
+        }
+
+        .service-card p {
+            color: #ddd;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card .btn {
+            width: 100%;
+            margin: 0;
+        }
+
+        .back-home {
+            display: inline-flex;
+            align-items: center;
+            margin-top: 3rem;
+            font-size: 1rem;
+            color: var(--main-color);
+            transition: 0.3s;
+        }
+
+        .back-home i {
+            margin-right: 0.5rem;
+        }
+
+        .back-home:hover {
+            color: var(--white-color);
+        }
+    </style>
+</head>
+<body>
+    <div class="service-page">
+        <div class="service-header">
+            <h1>Web Development Services</h1>
+            <p>We create modern, responsive, and user-friendly websites and web applications tailored to your business needs. Our web development services focus on performance, accessibility, and delivering exceptional user experiences.</p>
+        </div>
+
+        <div class="service-cards">
+            <div class="service-card">
+                <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2064&q=80" alt="Frontend Development">
+                <h3>Frontend Development</h3>
+                <p>We build beautiful, responsive user interfaces using modern frameworks like React, Angular, and Vue.js. Our frontend development focuses on creating intuitive and engaging user experiences across all devices.</p>
+                <a href="#" class="btn">Learn More</a>
+            </div>
+
+            <div class="service-card">
+                <img src="https://images.unsplash.com/photo-1623479322729-28b25c16b011?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Backend Development">
+                <h3>Backend Development</h3>
+                <p>Our backend development services provide robust, scalable server-side solutions using technologies like Node.js, Python, and PHP. We build secure APIs, databases, and server architecture to power your applications.</p>
+                <a href="#" class="btn">Learn More</a>
+            </div>
+
+            <div class="service-card">
+                <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80" alt="E-commerce Solutions">
+                <h3>E-commerce Solutions</h3>
+                <p>We develop custom e-commerce platforms with secure payment gateways, inventory management, and user-friendly shopping experiences. Our solutions help businesses sell products and services online effectively.</p>
+                <a href="#" class="btn">Learn More</a>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 3rem;">
+            <a href="index.html" class="back-home">
+                <i class='bx bx-left-arrow-alt'></i>
+                Back to Home
+            </a>
+        </div>
+    </div>
+</body>
+</html> 

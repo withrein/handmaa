@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Marketing Services</title>
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        .service-page {
+            background: var(--bg-color);
+            min-height: 100vh;
+            padding: 5rem 2rem;
+        }
+
+        .service-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .service-header h1 {
+            font-size: 2.5rem;
+            color: var(--white-color);
+            margin-bottom: 1rem;
+        }
+
+        .service-header p {
+            color: #ddd;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .service-cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 2rem;
+            width: 350px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            border-color: var(--main-color);
+        }
+
+        .service-card .icon {
+            font-size: 3rem;
+            color: var(--main-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            color: var(--white-color);
+            margin-bottom: 1rem;
+        }
+
+        .service-card p {
+            color: #ddd;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card .btn {
+            width: 100%;
+            margin: 0;
+        }
+
+        .back-home {
+            display: inline-flex;
+            align-items: center;
+            margin-top: 3rem;
+            font-size: 1rem;
+            color: var(--main-color);
+            transition: 0.3s;
+        }
+
+        .back-home i {
+            margin-right: 0.5rem;
+        }
+
+        .back-home:hover {
+            color: var(--white-color);
+        }
+    </style>
+</head>
+<body>
+    <div class="service-page">
+        <div class="service-header">
+            <h1>Digital Marketing Services</h1>
+            <p>Our digital marketing services help businesses increase their online visibility, attract more customers, and drive growth. We develop data-driven strategies tailored to your business goals and target audience to maximize your marketing ROI.</p>
+        </div>
+
+        <div class="service-cards">
+            <div class="service-card">
+                <img src="https://images.unsplash.com/photo-1557838923-2985c318be48?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Social Media Marketing">
+                <h3>Social Media Marketing</h3>
+                <p>We create and manage engaging social media campaigns across platforms like Facebook, Instagram, Twitter, and LinkedIn. Our social media strategies focus on building brand awareness, growing your audience, and driving meaningful engagement.</p>
+                <a href="#" class="btn">Learn More</a>
+            </div>
+
+            <div class="service-card">
+                <img src="https://images.unsplash.com/photo-1533750516457-a7f992034fec?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2006&q=80" alt="Email Marketing">
+                <h3>Email Marketing</h3>
+                <p>Our email marketing services help you build and nurture relationships with your audience. We design effective email campaigns with personalized content, automation workflows, and performance analytics to drive conversions.</p>
+                <a href="#" class="btn">Learn More</a>
+            </div>
+
+            <div class="service-card">
+                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2015&q=80" alt="PPC Advertising">
+                <h3>PPC Advertising</h3>
+                <p>We develop and manage pay-per-click advertising campaigns on Google, Facebook, and other platforms. Our PPC services include keyword research, ad creation, bid management, and continuous optimization to maximize your ad spend.</p>
+                <a href="#" class="btn">Learn More</a>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 3rem;">
+            <a href="index.html" class="back-home">
+                <i class='bx bx-left-arrow-alt'></i>
+                Back to Home
+            </a>
+        </div>
+    </div>
+</body>
+</html> 

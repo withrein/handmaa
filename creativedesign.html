@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creative Design Services</title>
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        .service-page {
+            background: var(--bg-color);
+            min-height: 100vh;
+            padding: 5rem 2rem;
+            overflow-x: hidden;
+        }
+
+        .service-header {
+            text-align: center;
+            margin-bottom: 4rem;
+            animation: fadeInDown 1s ease forwards;
+        }
+
+        .service-header h1 {
+            font-size: 3rem;
+            color: var(--white-color);
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .service-header h1::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--main-color);
+            border-radius: 2px;
+        }
+
+        .service-header p {
+            color: #ddd;
+            max-width: 800px;
+            margin: 1.5rem auto 0;
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        .service-cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 2.5rem;
+            width: 350px;
+            transition: all 0.4s ease;
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 1s ease forwards;
+            animation-delay: calc(0.2s * var(--i));
+            opacity: 0;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: var(--main-color);
+            transform: scaleY(0);
+            transform-origin: bottom;
+            transition: transform 0.5s ease;
+        }
+
+        .service-card:hover::before {
+            transform: scaleY(1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            border-color: var(--main-color);
+        }
+
+        .service-card .icon {
+            font-size: 3.5rem;
+            color: var(--main-color);
+            margin-bottom: 1.5rem;
+            transition: transform 0.5s ease;
+        }
+
+        .service-card:hover .icon {
+            transform: scale(1.2);
+        }
+
+        .service-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 1.8rem;
+            transition: transform 0.5s ease;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .service-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .service-card h3 {
+            font-size: 1.6rem;
+            color: var(--white-color);
+            margin-bottom: 1.2rem;
+            position: relative;
+            padding-bottom: 0.8rem;
+        }
+
+        .service-card h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--main-color);
+            transition: width 0.5s ease;
+        }
+
+        .service-card:hover h3::after {
+            width: 100px;
+        }
+
+        .service-card p {
+            color: #ddd;
+            margin-bottom: 2rem;
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        .service-card .btn {
+            width: 100%;
+            margin: 0;
+            height: 3.2rem;
+            font-size: 1rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .service-card .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            transition: width 0.5s ease;
+            z-index: -1;
+        }
+
+        .service-card .btn:hover::before {
+            width: 100%;
+        }
+
+        .back-home {
+            display: inline-flex;
+            align-items: center;
+            margin-top: 4rem;
+            font-size: 1.1rem;
+            color: var(--main-color);
+            transition: 0.3s;
+            position: relative;
+            padding: 0.8rem 1.5rem;
+            border: 1px solid var(--main-color);
+            border-radius: 30px;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .back-home::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 100%;
+            background: var(--main-color);
+            transition: width 0.5s ease;
+            z-index: -1;
+        }
+
+        .back-home:hover::before {
+            width: 100%;
+        }
+
+        .back-home i {
+            margin-right: 0.8rem;
+            transition: transform 0.3s ease;
+        }
+
+        .back-home:hover {
+            color: var(--white-color);
+        }
+
+        .back-home:hover i {
+            transform: translateX(-5px);
+        }
+
+        .process-section {
+            margin-top: 6rem;
+            text-align: center;
+            animation: fadeIn 1s ease forwards;
+            animation-delay: 0.6s;
+            opacity: 0;
+        }
+
+        .process-section h2 {
+            font-size: 2.2rem;
+            color: var(--white-color);
+            margin-bottom: 3rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .process-section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: var(--main-color);
+        }
+
+        .process-steps {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .process-step {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 1.5rem;
+            width: 250px;
+            text-align: center;
+            position: relative;
+        }
+
+        .process-step::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: -30px;
+            width: 30px;
+            height: 2px;
+            background: var(--main-color);
+            display: none;
+        }
+
+        .process-step:not(:last-child)::after {
+            display: block;
+        }
+
+        .step-number {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 50px;
+            height: 50px;
+            background: var(--main-color);
+            color: var(--white-color);
+            border-radius: 50%;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 0 auto 1rem;
+        }
+
+        .process-step h3 {
+            color: var(--white-color);
+            margin-bottom: 0.8rem;
+        }
+
+        .process-step p {
+            color: #ddd;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .testimonials {
+            margin-top: 6rem;
+            text-align: center;
+            animation: fadeIn 1s ease forwards;
+            animation-delay: 0.8s;
+            opacity: 0;
+        }
+
+        .testimonials h2 {
+            font-size: 2.2rem;
+            color: var(--white-color);
+            margin-bottom: 3rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .testimonials h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: var(--main-color);
+        }
+
+        .testimonial-cards {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 2rem;
+            width: 350px;
+            text-align: left;
+            position: relative;
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            font-size: 5rem;
+            color: rgba(0, 171, 240, 0.2);
+            font-family: Georgia, serif;
+            line-height: 1;
+        }
+
+        .testimonial-text {
+            color: #ddd;
+            font-style: italic;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+
+        .author-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 1rem;
+            border: 2px solid var(--main-color);
+        }
+
+        .author-info h4 {
+            color: var(--white-color);
+            margin-bottom: 0.2rem;
+        }
+
+        .author-info p {
+            color: var(--main-color);
+            font-size: 0.9rem;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .service-header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .service-card {
+                width: 320px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .service-page {
+                padding: 4rem 1.5rem;
+            }
+            
+            .service-header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .service-header p {
+                font-size: 1rem;
+            }
+            
+            .process-steps {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .process-step {
+                width: 100%;
+                max-width: 350px;
+            }
+            
+            .process-step::after {
+                display: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .service-header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .service-card {
+                padding: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="service-page">
+        <div class="service-header">
+            <h1>Creative Design Services</h1>
+            <p>Our creative design services combine artistic vision with strategic thinking to create impactful visual solutions. We focus on developing unique designs that communicate your brand's message effectively and leave a lasting impression on your audience.</p>
+        </div>
+
+        <div class="service-cards">
+            <div class="service-card" style="--i:1">
+                <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2000&q=80" alt="UI/UX Design">
+                <h3>UI/UX Design</h3>
+                <p>We create intuitive and visually appealing user interfaces that enhance user experience. Our UI/UX design process focuses on user research, wireframing, prototyping, and testing to ensure optimal usability and engagement.</p>
+                <a href="#" class="btn">Learn More</a>
+            </div>
+
+            <div class="service-card" style="--i:2">
+                <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80" alt="Brand Identity">
+                <h3>Brand Identity</h3>
+                <p>We develop comprehensive brand identities that include logos, color palettes, typography, and visual guidelines. Our branding solutions help businesses establish a strong, cohesive visual presence across all platforms.</p>
+                <a href="#" class="btn">Learn More</a>
+            </div>
+
+            <div class="service-card" style="--i:3">
+                <img src="https://images.unsplash.com/photo-1522542550221-31fd19575a2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Motion Graphics">
+                <h3>Motion Graphics</h3>
+                <p>Our motion graphics services bring static designs to life with animation and visual effects. We create engaging animated content for websites, social media, presentations, and advertising campaigns that capture audience attention.</p>
+                <a href="#" class="btn">Learn More</a>
+            </div>
+        </div>
+
+        <div class="process-section">
+            <h2>Our Creative Process</h2>
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h3>Discovery</h3>
+                    <p>We learn about your business, goals, target audience, and vision to understand your needs.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h3>Strategy</h3>
+                    <p>We develop a creative strategy that aligns with your business objectives and resonates with your audience.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h3>Design</h3>
+                    <p>Our designers create concepts and iterate based on feedback until the perfect design is achieved.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h3>Delivery</h3>
+                    <p>We finalize and deliver your design assets in all required formats for immediate implementation.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="testimonials">
+            <h2>Client Testimonials</h2>
+            <div class="testimonial-cards">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">The creative design team delivered beyond our expectations. They transformed our brand identity and helped us connect with our audience in ways we never thought possible.</p>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Sarah Johnson" class="author-img">
+                        <div class="author-info">
+                            <h4>Sarah Johnson</h4>
+                            <p>Marketing Director, TechSolutions</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">Working with this team was a game-changer for our startup. Their UI/UX design expertise helped us create an app that users love and keeps them coming back.</p>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Michael Chen" class="author-img">
+                        <div class="author-info">
+                            <h4>Michael Chen</h4>
+                            <p>Founder, AppInnovate</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">The motion graphics they created for our campaign increased engagement by 300%. Their creative approach and attention to detail made all the difference.</p>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Emma Rodriguez" class="author-img">
+                        <div class="author-info">
+                            <h4>Emma Rodriguez</h4>
+                            <p>Creative Director, MediaPulse</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 4rem;">
+            <a href="index.html" class="back-home">
+                <i class='bx bx-left-arrow-alt'></i>
+                Back to Home
+            </a>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.service-card');
+            
+            function checkScroll() {
+                const triggerBottom = window.innerHeight * 0.8;
+                
+                cards.forEach(card => {
+                    const cardTop = card.getBoundingClientRect().top;
+                    
+                    if(cardTop < triggerBottom) {
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
+                    }
+                });
+            }
+            
+            window.addEventListener('scroll', checkScroll);
+            checkScroll(); 
+        });
+    </script>
+</body>
+</html> 
